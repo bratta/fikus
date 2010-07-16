@@ -1,0 +1,103 @@
+--- 
+dependencies: 
+  bson_ext: 
+    group: 
+    - :default
+    version: ">= 0"
+    require: 
+    - mongo
+  mongo_mapper: 
+    group: 
+    - :default
+    version: ">= 0"
+  padrino: 
+    group: 
+    - :default
+    version: = 0.9.14
+  haml: 
+    group: 
+    - :default
+    version: ">= 0"
+  rake: 
+    group: 
+    - :default
+    version: ">= 0"
+  thin: 
+    group: 
+    - :default
+    version: ">= 0"
+  rack-flash: 
+    group: 
+    - :default
+    version: ">= 0"
+  rdiscount: 
+    group: 
+    - :default
+    version: ">= 0"
+specs: 
+- rake: 
+    version: 0.8.7
+- activesupport: 
+    version: 2.3.8
+- bson: 
+    version: 1.0.4
+- bson_ext: 
+    version: 1.0.4
+- bundler: 
+    version: 0.9.25
+- daemons: 
+    version: 1.1.0
+- eventmachine: 
+    version: 0.12.10
+- haml: 
+    version: 3.0.13
+- rack: 
+    version: 1.2.1
+- url_mount: 
+    version: 0.2.1
+- http_router: 
+    version: 0.3.3
+- i18n: 
+    version: 0.4.1
+- jnunemaker-validatable: 
+    version: 1.8.4
+- mime-types: 
+    version: "1.16"
+- polyglot: 
+    version: 0.3.1
+- treetop: 
+    version: 1.4.8
+- mail: 
+    version: 2.2.5
+- mongo: 
+    version: 1.0.5
+- plucky: 
+    version: 0.3.2
+- mongo_mapper: 
+    version: 0.8.2
+- sinatra: 
+    version: "1.0"
+- thor: 
+    version: 0.13.7
+- padrino-core: 
+    version: 0.9.14
+- padrino-gen: 
+    version: 0.9.14
+- padrino-helpers: 
+    version: 0.9.14
+- padrino-admin: 
+    version: 0.9.14
+- padrino-mailer: 
+    version: 0.9.14
+- padrino: 
+    version: 0.9.14
+- rack-flash: 
+    version: 0.1.1
+- rdiscount: 
+    version: 1.6.5
+- thin: 
+    version: 1.2.7
+hash: c59f27e1013176f607adee4edae53d2c4bca91aa
+sources: 
+- Rubygems: 
+    uri: http://gemcutter.org

@@ -1,0 +1,41 @@
+.group
+  =f.label "First Name"
+  =f.error_message_on :name
+  =f.text_field :name, :class => :text_field
+  %span.description Your first name
+
+.group
+  =f.label :surname
+  =f.error_message_on :surname
+  =f.text_field :surname, :class => :text_field
+  %span.description Your last name
+
+.group
+  =f.label :email
+  =f.error_message_on :email
+  =f.text_field :email, :class => :text_field
+  %span.description A valid email address
+
+.group
+  =f.label :password
+  =f.error_message_on :password
+  =f.password_field :password, :class => :password_field
+  %span.description Using "12345" does not count
+
+.group
+  =f.label :password_confirmation
+  =f.error_message_on :password_confirmation
+  =f.password_field :password_confirmation, :class => :password_field
+  %span.description Match the above
+
+.group
+  =f.label :role
+  =f.error_message_on :role
+  =f.select :role, :options => access_control.roles
+  %br
+  %span.description Are you 1337 or a n00b?
+
+
+.group.navform.wat-cf
+  =f.submit pat(:save), :class => :button
+  =f.submit pat(:cancel), :onclick => "window.location='#{url(:accounts, :index)}';return false", :class => :button

@@ -1,0 +1,31 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first.active=link_to pat(:list), url(:pages, :index)
+      %li=link_to pat(:new), url(:pages, :new)
+  .content
+    %h2.title
+      =pat(:all)
+      =mt(:page)
+    .inner
+      %table.table
+        %tr
+          %th.first=mat(:page, :title)
+          %th=mat(:page, :path)  
+          %th=mat(:page, :weight)        
+          %th=mat(:page, :created_at)          
+          %th=mat(:page, :updated_at)
+          %th.last="&nbsp;"
+        -@pages.each do |page|
+          %tr
+            %td.first=button_to page.title, url(:pages, :edit, :id => page.id), :method => :get, :class => :button_to
+            %td=page.path  
+            %td=page.weight          
+            %td=page.created_at            
+            %td=page.updated_at
+            %td.last
+              =button_to pat(:delete), url(:pages, :destroy, :id => page.id), :method => :delete, :class => :button_to
+      .actions-bar.wat-cf
+        .actions="&nbsp;"
+
+-content_for :sidebar, partial("base/sidebar")

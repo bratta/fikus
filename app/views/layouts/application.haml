@@ -1,0 +1,47 @@
+%html
+  %head
+    %title= "#{FikusConfig.site_name} :: #{@page.title}" 
+    %link{:href => "/stylesheets/application.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}/
+    %script{:src => "/javascripts/jquery-1.4.2.min.js", :type => "text/javascript"}
+    %script{:src => "/javascripts/jquery.tweet.js", :type => "text/javascript"}
+    %script{:src => "/javascripts/application.js", :type => "text/javascript"}
+  %body
+    #header
+      %h1=FikusConfig.site_name
+      %h2=FikusConfig.tagline
+    #content
+      .imgblock
+        %img{:alt => "Fikus", :height => "150", :src => "/images/ficus.png", :title => "Fikus", :width => "88"}/
+        %h3 Simple CMS
+      .imgblock
+        %img{:alt => "Sinatra", :height => "150", :src => "/images/sinatra.png", :title => "Sinatra", :width => "156"}/
+        %h3 Sinatra-based
+      .imgblock
+        %img{:alt => "Ruby", :height => "150", :src => "/images/ruby.png", :title => "Ruby", :width => "131"}/
+        %h3 Ruby Powered
+      #page
+        = yield
+      #sidebar
+        %h3 Menu
+        %ul.links
+          - Page.all_by_weight.each do |page|
+            %li
+              %a{:href => "/#{page.path}"}=page.title
+        %h3 Other Links
+        %ul.links
+          %li
+            %a{:href => "http://www.padrinorb.com/"} Padrino
+          %li
+            %a{:href => "http://www.sinatrarb.com/"} Sinatra
+          %li
+            %a{:href => "http://www.mongodb.org/"} MongoDB
+          %li
+            %a{:href => "http://www.ruby-lang.org/"} Ruby
+          %li
+            %a{:href => "http://jquery.com/"} jQuery
+          %li
+            %a{:href => "http://tweet.seaofclouds.com/"} Tweet!
+        %h3 On Twitter...
+        .tweet
+    #footer
+      Copyright &copy; 2010 Tim Gourley

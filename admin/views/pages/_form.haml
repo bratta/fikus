@@ -1,0 +1,36 @@
+.group
+  =f.label :title
+  =f.error_message_on :title
+  =f.text_field :title, :class => :text_field
+  %span.description eg. About this site
+
+.group
+  =f.label :path
+  =f.error_message_on :path
+  =f.text_field :path, :class => :text_field
+  %span.description eg. about; Keep blank for the home page
+  
+.group
+  =f.label :layout
+  =f.error_message_on :layout
+  =f.select :layout, :class => :select, :options => all_layouts
+  %br
+  %span.description The view layout to use (eg. application.haml)  
+
+.group
+  =f.label :weight
+  =f.error_message_on :weight
+  =f.text_field :weight, :class => :text_field, :style => 'width: 50px'
+  %br
+  %span.description Helpful for ordering. Higher numbers sink to the bottom.  
+
+.group><
+  =f.label :body
+  =f.error_message_on :body
+  = find_and_preserve do
+    =f.text_area :body, :class => :text_area, :style => 'height: 200px'
+  %span.description i.e. Markdown syntax goodness  
+
+.group.navform.wat-cf
+  =f.submit pat(:save), :class => :button
+  =f.submit pat(:cancel), :onclick => "window.location='#{url(:pages, :index)}';return false", :class => :button

@@ -1,0 +1,7 @@
+--- 
+:renderer: haml
+:test: none
+:orm: mongomapper
+:script: none
+:stylesheet: none
+:mock: none
