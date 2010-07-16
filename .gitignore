@@ -1,2 +1,4 @@
 .bundle
 app/cache/*
+Capfile
+config/deploy.rb
