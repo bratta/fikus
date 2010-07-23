@@ -2,7 +2,8 @@
 # NOTE: You need to have these customized files put in place with Chef
 # Along with any other customized files you need.
 ['database.rb', 'fikus.yml'].each do |cfg_file|
-  if File.exist?(cfg_file)
-    run "ln -nsf #{shared_path}/config/#{cfg_file} #{release_path}/config/#{cfg_file}"
+  cfg_file_path = "#{shared_path}/config/#{cfg_file}"
+  if File.exist?(cfg_file_path)
+    run "ln -nsf #{cfg_file_path} #{release_path}/config/#{cfg_file}"
   end
 end
