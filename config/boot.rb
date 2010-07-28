@@ -12,6 +12,7 @@ rescue LoadError
   Bundler.setup
   require 'fileutils'
   require 'ostruct'
+  require 'uri'
 end
 
 Bundler.require(:default, PADRINO_ENV.to_sym)
