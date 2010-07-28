@@ -22,7 +22,7 @@ module FikusCacheHelpers
     cache_file = cache_filename(page.path)
     if !File.exist?(cache_file)
       output = render('shared/page', :layout => get_valid_layout(page.layout))
-      File.open(cache_file, 'w') { |f| f.write(output) }
+      File.open(cache_file, 'w') { |f| f.write(output) } if FikusConfig.cache_strategy == 'filesystem'
     end
     output
   end

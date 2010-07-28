@@ -1,12 +1,20 @@
 :development:
   site_name: Fikus
   tagline: Development Environment
+  cache_strategy: filesystem           # Valid values: filesystem, varnish; defaults to filesystem
   max_cache_time: 600
+:staging:
+  site_name: Fikus
+  tagline: Staging Environment
+  cache_strategy: varnish
+  max_cache_time: 600  
 :test:
   site_name: Fikus
   tagline: Test Environment
+  cache_strategy: filesystem
   max_cache_time: 172800
 :production:
   site_name: Fikus
   tagline: The Simple Ruby CMS
+  cache_strategy: varnish  
   max_cache_time: 172800  

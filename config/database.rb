@@ -1,7 +1,6 @@
-MongoMapper.connection = Mongo::Connection.new('localhost', nil, :logger => logger)
-
-case Padrino.env
-  when :development then MongoMapper.database = 'fikus_development'
-  when :production  then MongoMapper.database = 'fikus_production'
-  when :test        then MongoMapper.database = 'fikus_test'
+if ENV['MONGOHQ_URL']
+  MongoMapper.connection = Mongo::Connection.from_uri(mongodb_uri, :logger => logger)
+else
+  MongoMapper.connection = Mongo::Connection.new('localhost', nil, :logger => logger)
+  MongoMapper.database = "fikus_#{Padrino.env}"
 end

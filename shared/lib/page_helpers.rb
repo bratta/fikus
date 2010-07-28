@@ -9,10 +9,11 @@ module FikusPageHelpers
   end
   
   def render_page(path_name)
-    current_cache = get_cache(path_name)
+    current_cache = get_cache(path_name) if FikusConfig.cache_strategy == 'filesystem'
     if !current_cache
       @page = Page.find_by_path(path_name)
       halt 404 if !@page
+      response.headers['Cache-Control'] = "public, max-age=#{FikusConfig.max_cache_time}" if FikusConfig.cache_strategy == 'varnish'
       return cache_page(@page)
     end
     current_cache

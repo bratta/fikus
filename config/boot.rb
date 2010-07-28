@@ -17,4 +17,5 @@ end
 Bundler.require(:default, PADRINO_ENV.to_sym)
 puts "=> Located #{Padrino.bundle} Gemfile for #{Padrino.env}"
 Padrino.custom_dependencies("#{Padrino.root}/config/fikus.rb")
+Padrino::Logger::Config[:staging] = { :log_level => :warn,  :stream => :to_file }
 Padrino.load!

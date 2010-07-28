@@ -44,19 +44,19 @@ specs:
 - bson_ext: 
     version: 1.0.4
 - bundler: 
-    version: 0.9.25
+    version: 0.9.26
 - daemons: 
     version: 1.1.0
 - eventmachine: 
     version: 0.12.10
 - haml: 
-    version: 3.0.13
+    version: 3.0.15
 - rack: 
     version: 1.2.1
 - url_mount: 
     version: 0.2.1
 - http_router: 
-    version: 0.3.3
+    version: 0.3.5
 - i18n: 
     version: 0.4.1
 - jnunemaker-validatable: 
@@ -70,7 +70,7 @@ specs:
 - mail: 
     version: 2.2.5
 - mongo: 
-    version: 1.0.5
+    version: 1.0.6
 - plucky: 
     version: 0.3.2
 - mongo_mapper: 
@@ -78,7 +78,7 @@ specs:
 - sinatra: 
     version: "1.0"
 - thor: 
-    version: 0.13.7
+    version: 0.14.0
 - padrino-core: 
     version: 0.9.14
 - padrino-gen: 
