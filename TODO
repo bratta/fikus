@@ -1,8 +1,5 @@
 * Add a Contact Form API
 * Add some real tests. I've got this whole TDD thing backwards.
-* Get working on Heroku
-* Deployment docs for Engine Yard AppCloud
-* Deployment docs for Heroku
 * Deployment docs for generic VM's (like Slicehost)
 * Asset manager for uploading to S3
 * Squash bugs

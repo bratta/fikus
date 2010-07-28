@@ -80,7 +80,9 @@ Let's get our gems installed and create a default user:
     bundle install
     padrino rake seed
 
-That will prompt you to enter an email/password for your admin user.
+That will create a default admin user for you. Take the given info, login via 
+the admin URL at /admin and make sure you change your account info!
+
 Do it do it do it!
 
 Next, boot it up:
@@ -104,3 +106,44 @@ All static assets need to go in public/.
 
 Your default home page will be whatever you specify WITHOUT a path. 
 Anything else will show up at http://localhost:3000/page_path
+
+## Deployment notes
+
+### Engine Yard AppCloud
+
+This application works on the Engine Yard AppCloud. The recommended method
+of deployment is as follows:
+
+Create your environment with Ruby 1.8.7 and use Unicorn (recommended) or
+Passenger. Add the bundler gem and padrino to your application's required
+gems. The "bundle install" will do the rest.
+
+Grab the custom chef recipes for Fikus and MongoDB here:
+
+http://github.com/bratta/ey-cloud-recipes
+
+Add them to your own fork of ey-cloud-recipes and make sure to update the 
+config files in cookbooks/fikus/files/default/fikus.yml
+
+The MongoDB recipe by default installs to a utility instance named 
+mongodb_master. So if you want it on a single instance some hacking is
+required. I heartily recommend against having MongoDB on the same instance
+as your application and MySQL.
+
+Boot your cluster, skip running migrations, and run "padrino rake seed" from
+the application's directory.
+
+### Heroku
+
+This application will work with Heroku, provided your environment is set to 
+use a cache_strategy of 'varnish' in your config/fikus.yml file.
+
+Then it is a simple matter of doing this:
+
+    heroku create --stack bamboo-ree-1.8.7
+    heroku addons:add mongohq:free
+    git push heroku master
+    heroku rake seed
+    
+After that, you can login by going to http://myappname.heroku.com/admin
+and entering the credentials set up for you.

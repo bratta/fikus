@@ -28,7 +28,7 @@ Admin.controllers :pages do
   put :update, :with => :id do
     @page = Page.find(params[:id])
     if @page.update_attributes(params[:page])
-      sweep_cache(@page.path)
+      sweep_all_cache if FikusConfig.cache_strategy == 'filesystem'
       flash[:notice] = 'Page was successfully updated.'
       redirect url(:pages, :edit, :id => @page.id)
     else
