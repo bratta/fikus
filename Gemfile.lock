@@ -30,6 +30,10 @@ dependencies:
     group: 
     - :default
     version: ">= 0"
+  bundler: 
+    group: 
+    - :default
+    version: = 0.9.26
   rdiscount: 
     group: 
     - :default
@@ -97,7 +101,7 @@ specs:
     version: 1.6.5
 - thin: 
     version: 1.2.7
-hash: c59f27e1013176f607adee4edae53d2c4bca91aa
+hash: 51ee078cd2f01fabe6f5f65c72f2aba50e8f30a3
 sources: 
 - Rubygems: 
     uri: http://gemcutter.org

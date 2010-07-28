@@ -1,6 +1,7 @@
 source :rubygems
 
 # Project requirements
+gem 'bundler', '0.9.26'
 gem 'rake'
 gem 'rack-flash'
 gem 'thin' # or mongrel
