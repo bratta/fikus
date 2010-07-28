@@ -2,7 +2,7 @@ module FikusCacheHelpers
   def cache_filename(path_name)
     path_name = (path_name.nil? || path_name.empty?) ? 'index' : path_name
     cache_path = File.join(Padrino.root, "app", "cache")
-    FileUtils.mkdir_p(cache_path) if !File.directory?(cache_path)    
+    FileUtils.mkdir_p(cache_path) if !File.directory?(cache_path) && FikusConfig.cache_strategy == 'filesystem'
     cache_file = File.join(cache_path, "#{path_name}.html")  
   end  
 
