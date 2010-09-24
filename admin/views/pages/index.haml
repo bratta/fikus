@@ -10,7 +10,8 @@
     .inner
       %table.table
         %tr
-          %th.first=mat(:page, :title)
+          %th.first=mt(:site)
+          %th=mat(:page, :title)
           %th=mat(:page, :path)  
           %th=mat(:page, :weight)        
           %th=mat(:page, :created_at)          
@@ -18,7 +19,8 @@
           %th.last="&nbsp;"
         -@pages.each do |page|
           %tr
-            %td.first=button_to page.title, url(:pages, :edit, :id => page.id), :method => :get, :class => :button_to
+            %td.first=page.site.name
+            %td=link_to page.title, url(:pages, :edit, :id => page.id), :method => :get
             %td=page.path  
             %td=page.weight          
             %td=page.created_at            

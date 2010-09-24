@@ -1,4 +1,9 @@
 module FikusPageHelpers
+  
+  def current_site
+    site = Site.get_site(request.host)
+  end
+  
   def all_layouts
     Dir.entries(File.join(Padrino.root, "app", "views", "layouts")).select {|x| x =~ /\.haml$/}
   end
@@ -8,19 +13,14 @@ module FikusPageHelpers
     (File.exist?("#{full_layout_path}")) ? "layouts/#{layout_to_use.gsub(/\.haml$/,'')}".to_sym : :'layouts/application'
   end
   
-  def render_page(path_name)
-    current_cache = get_cache(path_name) if FikusConfig.cache_strategy == 'filesystem'
-    if !current_cache
-      @page = Page.find_by_path(path_name)
-      halt 404 if !@page
-      response.headers['Cache-Control'] = "public, max-age=#{FikusConfig.max_cache_time}" if FikusConfig.cache_strategy == 'varnish'
-      return cache_page(@page)
-    end
-    current_cache
-  end
-  
   def markdown(text)
     markdown = RDiscount.new(text, :smart)
     markdown.to_html
+  end
+  
+  def render_page(path_name)
+      @page = Page.find_by_site_and_path(request.host, path_name)
+      halt 404 if !@page
+      FikusConfig.cacher.retrieve(@page) { render('shared/page', :layout => get_valid_layout(@page.layout)) }
   end  
 end

@@ -1,3 +1,8 @@
+2010.09.24 - Version 0.1.0
+==========================
+- Refactored the cache system
+- Support for handling multiple domains
+
 2010.07.16 - Version 0.0.0
 ==========================
 - Initial Release

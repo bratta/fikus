@@ -118,13 +118,23 @@ Create your environment with Ruby 1.8.7 and use Unicorn (recommended) or
 Passenger. Add the bundler gem and padrino to your application's required
 gems. The "bundle install" will do the rest.
 
-Grab the custom chef recipes for Fikus and MongoDB here:
+Fork Engine Yard's chef recipe repository here:
 
-http://github.com/bratta/ey-cloud-recipes
+    http://github.com/engineyard/ey-cloud-recipes
 
-Add them to your own fork of ey-cloud-recipes and make sure to update the 
-config files in cookbooks/fikus/files/default/fikus.yml
+Then copy the "chef/fikus" folder in this repository over to the
+ey-cloud-recipes/cookbooks/fikus folder. You will want to edit the
+fikus.yml file there to your liking. Then you will need to add the 
+mongodb and fikus recipes to cookbooks/main/recipes/default.rb:
 
+    require_recipe "mongodb"
+    require_recipe "fikus"
+
+Commit the changes and apply using the "ey" command. For more information,
+please see the Chef documentation on the Engine Yard website:
+
+    http://docs.engineyard.com/appcloud/howtos/customizations/custom-chef-recipes
+    
 The MongoDB recipe by default installs to a utility instance named 
 mongodb_master. So if you want it on a single instance some hacking is
 required. I heartily recommend against having MongoDB on the same instance
@@ -147,3 +157,17 @@ Then it is a simple matter of doing this:
     
 After that, you can login by going to http://myappname.heroku.com/admin
 and entering the credentials set up for you.
+
+## Get involved
+
+Getting involved is a simple matter of forking the code and submitting 
+a pull request. I'll accept any patches that make sense. If you want 
+to become an active developer, get in touch with me on github and 
+I'll get you access to commit directly.
+
+### Issues
+
+We're on Lighthouse. I'd prefer tickets going there:
+
+    http://fikus.lighthouseapp.com/projects/59205-fikus/overview
+    

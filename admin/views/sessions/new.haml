@@ -3,14 +3,14 @@
   %head
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}
     %title 
-      =FikusConfig.site_name
+      =current_site.name
       Admin
     =stylesheet_link_tag :base, "themes/default/style"
   %body
     #container
       #box
         %h1 
-          =FikusConfig.site_name
+          =current_site.name
           Admin
         #block-login.block
           %h2 Login Box

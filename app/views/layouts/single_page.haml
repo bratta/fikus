@@ -1,14 +1,14 @@
 %html
   %head
-    %title= "#{FikusConfig.site_name} :: #{@page.title}" 
+    %title= "#{current_site.name} :: #{@page.title}" 
     %link{:href => "/stylesheets/application.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}/
     %script{:src => "/javascripts/jquery-1.4.2.min.js", :type => "text/javascript"}
     %script{:src => "/javascripts/jquery.tweet.js", :type => "text/javascript"}
     %script{:src => "/javascripts/application.js", :type => "text/javascript"}
   %body
     #header
-      %h1=FikusConfig.site_name
-      %h2=FikusConfig.tagline
+      %h1=current_site.name
+      %h2=current_site.tagline
     #content
       #page
         .breadcrumb
@@ -19,7 +19,7 @@
       #sidebar
         %h3 Menu
         %ul.links
-          - Page.all_by_weight.each do |page|
+          - Page.all_by_weight(request.host).each do |page|
             %li
               %a{:href => "/#{page.path}"}=page.title
         %h3 Other Links

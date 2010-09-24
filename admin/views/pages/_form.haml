@@ -5,6 +5,12 @@
   %span.description eg. About this site
 
 .group
+  =f.label :site
+  =f.error_message_on :site
+  =f.select :site_id, :class => :select, :collection => Site.all(:order => 'name'), :fields => [:name, :id]
+  %span.description eg. Site this page belongs to
+  %br
+.group
   =f.label :path
   =f.error_message_on :path
   =f.text_field :path, :class => :text_field
