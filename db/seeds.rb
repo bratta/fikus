@@ -14,7 +14,7 @@ email = "admin@domain.com"
 password = "fikus"
 
 site_name = 'Fikus'
-site_domain = 'localhost'
+site_domain = '.*'
 site_tagline = 'The Simple Ruby CMS'
 
 shell.say ""
