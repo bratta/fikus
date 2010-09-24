@@ -1,0 +1,27 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first.active=link_to pat(:list), url(:sites, :index)
+      %li=link_to pat(:new), url(:sites, :new)
+  .content
+    %h2.title
+      =pat(:all)
+      =mt(:site)
+    .inner
+      %table.table
+        %tr
+          %th.first=mat(:site, :name)
+          %th=mat(:site, :tagline)
+          %th=mat(:site, :domain)
+          %th.last="&nbsp;"
+        -@sites.each do |site|
+          %tr
+            %td.first=link_to site.name, url(:sites, :edit, :id => site.id), :method => :get
+            %td=site.tagline
+            %td=site.domain
+            %td.last
+              =button_to pat(:delete), url(:sites, :destroy, :id => site.id), :method => :delete, :class => :button_to
+      .actions-bar.wat-cf
+        .actions="&nbsp;"
+
+-content_for :sidebar, partial("base/sidebar")

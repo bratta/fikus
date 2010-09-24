@@ -1,0 +1,12 @@
+:development:
+  cache_strategy: none           # Valid values: filesystem, varnish, none
+  max_cache_time: 600
+:staging:
+  cache_strategy: varnish
+  max_cache_time: 600  
+:test:
+  cache_strategy: filesystem
+  max_cache_time: 172800
+:production:
+  cache_strategy: filesystem  
+  max_cache_time: 172800

@@ -1,0 +1,3 @@
+MongoMapper.connection = Mongo::Connection.new('<%= @hostname %>', 27017, :logger => logger)
+MongoMapper.database = '<%= @database %>'
+MongoMapper.database.authenticate('<%= @username %>','<%= @password %>')
