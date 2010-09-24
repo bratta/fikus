@@ -11,7 +11,7 @@ class Site
   def self.get_site(domain)
     match = nil
     Site.all.each do |site|
-      match = site if site.domain.match(domain)
+      match = site if domain && domain.match(site.domain)
     end
     match
   end
