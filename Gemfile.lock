@@ -1,7 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    activesupport (3.0.0)
+    activesupport (3.0.1)
     bson (1.0.9)
     bson_ext (1.0.9)
     daemons (1.1.0)
@@ -54,7 +54,7 @@ GEM
     rack (1.2.1)
     rack-flash (0.1.1)
       rack
-    rake (0.8.7)
+    rake (= 0.8.7)
     rdiscount (1.6.5)
     sinatra (1.0)
       rack (>= 1.0)
