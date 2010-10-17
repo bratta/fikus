@@ -7,7 +7,7 @@ GEM
     daemons (1.1.0)
     eventmachine (0.12.10)
     haml (3.0.18)
-    http_router (0.3.17)
+    http_router (0.4.0)
       rack (>= 1.0)
       url_mount (>= 0.2.1)
     i18n (0.4.1)
